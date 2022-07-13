@@ -1,6 +1,6 @@
 <?php 
 
-include("condb.php");
+// include("condb.php");
 
 session_start();
 
@@ -11,6 +11,7 @@ $request_method = strtoupper($_SERVER['REQUEST_METHOD']);
 if ($request_method === 'POST') {
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
+    $category = $_POST["category"];
 
     // Si alguno de estos campos está vacío
     if(!$name || !$email) {
@@ -27,8 +28,13 @@ if ($request_method === 'POST') {
         $status = 'email-error';
     }
 
+    // Verificamos que se haya seleccionado una categoría
+    else if($category === 'category') {
+        $status = 'no-category';
+    }
+
     else {
-        $consulta = "INSERT INTO inscriptos (name, email) VALUES ('$name','$email')";
+        $consulta = "INSERT INTO `corredores`(`name`, `email`, `category`) VALUES ('$name', '$email', '$category')";
         $result = mysqli_query($connect, $consulta);
         
         if($result){
@@ -39,6 +45,7 @@ if ($request_method === 'POST') {
     }
 
     $_SESSION['status'] = $status;
+    $_SESSION['enviado'] = true;
 
     header('Location: index.php', true, 303);
     exit;
@@ -48,5 +55,10 @@ else if ($request_method === 'GET') {
     if (isset($_SESSION['status'])) {
         $status = $_SESSION['status'];
         unset($_SESSION['status']);
+    }
+    if (isset($_SESSION['enviado'])) {
+        $enviado = $_SESSION['enviado'];
+        var_dump($enviado);
+        unset($_SESSION['enviado']);
     }
 }

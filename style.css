@@ -1,33 +1,188 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: 'Lato', sans-serif;
     min-width: 320px;
+    background-color: #1E1E1E;
 }
 
-.main {
-    margin: auto;
-    width: 800px;
-    max-width: 100%;
-    height: 400px;
-    text-align: center;
-    background-image: url('https://triatletasenred.sport.es/wp-content/uploads/Runners.jpg');
-    background-size: cover;
+a {
+    color: black;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    max-width: 1200px;
+}
+
+header .inscripcion-button {
+    margin-top: 40px;
+}
+
+.front-page {
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+}
+
+.front-page div {
+    display: flex;
+    align-items: center;
+}
+
+.front-page .img-container {
+    margin-right: 146px;
+    width: 45%;
+    display: flex;
+    justify-content: end;
+}
+
+.front-page .text-container-container {
+    width: 55%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-container p {
+    margin: 0;
+}
+
+.text-container p:nth-child(1) {
+    font-size: 180px;
+    font-weight: 900;
+    font-style: italic;
+    color: #FFDC00;
+}
+
+.text-container p:nth-child(2) {
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic;
+    color: white;
+}
+
+.text-container .inscripcion-button {
+    margin-top: 20px;
+}
+
+.front-page img {
+    width: 190px;
+}
+
+.inscripcion-button {
+    padding: 12px 24px;
+    background-color: #FFDC00;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 900;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+footer a {
+    color: white;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.active {
     display: grid;
-    grid-template-columns: 50% 50%;
+    place-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-container {
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.close-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-button {
+    margin: 12px 16px 0 0;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 h1 {
     margin-top: 28px;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
 }
 
-.formulario{
-    margin: auto;
-    background-color: white;
-    height: 90%;
-    width: 90%;
-    border-radius: 5px;
+.subtext {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: italic;
+    text-align: center;
+    color: #4D4D4D;
+}
+
+.input.firts {
+    margin-top: 16px;
+}
+
+.input {
+    margin-bottom: 12px;
+    width: calc(100% - 16px);
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    background-color: #F2F2F2;
+}
+
+.input.select {
+    width: 100%;
+    border-right: 8px solid transparent;
+    cursor: pointer;
+}
+
+.enviar-inscripcion {
+    margin-top: 28px;
+    margin-bottom: 40px;
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #FFDC00;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 form {
@@ -36,11 +191,7 @@ form {
 }
 
 form div {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 form div input {
@@ -65,7 +216,6 @@ form div .button {
 
 .alert {
     margin: auto;
-    margin-bottom: 10px;
     height: 40px;
     width: 800px;
     max-width: 100%;
@@ -74,6 +224,7 @@ form div .button {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .alert.success {
